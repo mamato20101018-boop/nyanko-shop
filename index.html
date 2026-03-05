@@ -8,56 +8,65 @@
 
 <style>
 
-body{
+*{
 margin:0;
+padding:0;
+box-sizing:border-box;
 font-family:sans-serif;
+}
+
+body{
 background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
 color:white;
 }
 
 header{
 text-align:center;
-padding:30px;
-font-size:32px;
+padding:40px;
+font-size:35px;
 font-weight:bold;
 color:#00ffd5;
 background:#0b0f1a;
-box-shadow:0 4px 15px rgba(0,0,0,0.5);
+box-shadow:0 5px 20px rgba(0,0,0,0.5);
 }
 
 .shop{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:25px;
-padding:30px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:30px;
+padding:40px;
 }
 
 .card{
 background:#1e1e1e;
-width:260px;
 border-radius:15px;
-padding:20px;
-box-shadow:0 0 15px rgba(0,0,0,0.6);
+overflow:hidden;
+box-shadow:0 0 20px rgba(0,0,0,0.5);
 transition:0.3s;
-text-align:center;
 }
 
 .card:hover{
-transform:scale(1.05);
+transform:translateY(-10px) scale(1.03);
 }
 
 .card img{
 width:100%;
-border-radius:10px;
+height:160px;
+object-fit:cover;
+}
+
+.card-content{
+padding:20px;
+text-align:center;
 }
 
 .card h2{
 color:#00ffd5;
+margin-bottom:10px;
 }
 
 .price{
-font-size:24px;
+font-size:26px;
 color:#00ff88;
 margin:10px 0;
 }
@@ -67,36 +76,35 @@ font-size:14px;
 margin-bottom:10px;
 }
 
-.instock{
-color:#00ff88;
-}
-
-.sold{
-color:red;
-}
-
-button{
+.buy{
 background:#00ff88;
 border:none;
 padding:12px 20px;
 border-radius:10px;
-font-size:16px;
 cursor:pointer;
+font-size:16px;
 }
 
-button:hover{
+.buy:hover{
 background:#00cc6a;
 }
 
+.sold{
+background:red;
+padding:10px;
+border-radius:10px;
+}
+
 .pay{
-text-align:center;
-margin-top:50px;
+margin-top:40px;
 padding:40px;
+text-align:center;
 background:#111;
 }
 
 .pay img{
-margin-top:15px;
+margin-top:20px;
+border-radius:10px;
 }
 
 .discord{
@@ -111,12 +119,13 @@ text-decoration:none;
 
 .footer{
 text-align:center;
-margin-top:40px;
 padding:20px;
+margin-top:40px;
 opacity:0.7;
 }
 
 </style>
+
 </head>
 
 <body>
@@ -128,15 +137,16 @@ opacity:0.7;
 <div class="shop">
 
 <div class="card">
-
 <img src="account1.jpg">
+
+<div class="card-content">
 
 <h2>最強アカウント①</h2>
 
 <p>UR : 10000</p>
 <p>限定キャラ多数</p>
 
-<div class="stock instock">
+<div class="stock">
 在庫 : 1
 </div>
 
@@ -144,34 +154,33 @@ opacity:0.7;
 200円
 </div>
 
-<button onclick="document.getElementById('pay').scrollIntoView({behavior:'smooth'})">
+<button class="buy"
+onclick="document.getElementById('pay').scrollIntoView({behavior:'smooth'})">
 購入する
 </button>
 
 </div>
+</div>
 
 
 <div class="card">
-
 <img src="account2.jpg">
+
+<div class="card-content">
 
 <h2>最強アカウント②</h2>
 
 <p>UR : 9000</p>
-<p>レアキャラあり</p>
 
-<div class="stock sold">
+<div class="stock">
 売り切れ
 </div>
 
-<div class="price">
-200円
+<div class="sold">
+SOLD OUT
 </div>
 
-<button disabled>
-売り切れ
-</button>
-
+</div>
 </div>
 
 </div>
@@ -185,10 +194,11 @@ opacity:0.7;
 <img src="lv_0_20260305231032.jpg" width="250">
 
 <div class="discord">
-
 <p>支払い後こちらで連絡</p>
 
-<a href="https://discord.com">Discord</a>
+<a href="https://discord.com">
+Discordで連絡
+</a>
 
 </div>
 
@@ -196,8 +206,8 @@ opacity:0.7;
 
 <div class="footer">
 
-支払い方法：PayPay  
-購入後はDiscordで連絡してください  
+支払い方法：PayPay<br>
+購入後はDiscordで連絡してください
 
 </div>
 
