@@ -7,45 +7,80 @@
 <title>にゃんこ大戦争 最強アカウントショップ</title>
 
 <style>
+
 body{
 margin:0;
-background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
 font-family:sans-serif;
+background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
 color:white;
-text-align:center;
 }
 
 header{
+text-align:center;
 padding:30px;
 font-size:32px;
 font-weight:bold;
 color:#00ffd5;
+background:#0b0f1a;
+box-shadow:0 4px 15px rgba(0,0,0,0.5);
 }
 
-.container{
-padding:20px;
+.shop{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:25px;
+padding:30px;
 }
 
 .card{
 background:#1e1e1e;
-margin:20px;
-padding:25px;
+width:260px;
 border-radius:15px;
-box-shadow:0 0 15px rgba(0,0,0,0.5);
+padding:20px;
+box-shadow:0 0 15px rgba(0,0,0,0.6);
+transition:0.3s;
+text-align:center;
+}
+
+.card:hover{
+transform:scale(1.05);
+}
+
+.card img{
+width:100%;
+border-radius:10px;
+}
+
+.card h2{
+color:#00ffd5;
 }
 
 .price{
 font-size:24px;
 color:#00ff88;
-margin:10px;
+margin:10px 0;
+}
+
+.stock{
+font-size:14px;
+margin-bottom:10px;
+}
+
+.instock{
+color:#00ff88;
+}
+
+.sold{
+color:red;
 }
 
 button{
 background:#00ff88;
 border:none;
-padding:12px 25px;
+padding:12px 20px;
 border-radius:10px;
-font-size:18px;
+font-size:16px;
 cursor:pointer;
 }
 
@@ -54,16 +89,34 @@ background:#00cc6a;
 }
 
 .pay{
-margin-top:40px;
+text-align:center;
+margin-top:50px;
+padding:40px;
+background:#111;
+}
+
+.pay img{
+margin-top:15px;
+}
+
+.discord{
+margin-top:20px;
+}
+
+.discord a{
+color:#00ffd5;
+font-size:18px;
+text-decoration:none;
 }
 
 .footer{
-margin-top:50px;
-font-size:14px;
+text-align:center;
+margin-top:40px;
+padding:20px;
 opacity:0.7;
 }
-</style>
 
+</style>
 </head>
 
 <body>
@@ -72,15 +125,51 @@ opacity:0.7;
 🐱 にゃんこ大戦争 最強アカウントショップ
 </header>
 
-<div class="container">
+<div class="shop">
 
 <div class="card">
+
+<img src="account1.jpg">
+
 <h2>最強アカウント①</h2>
-<p>UR:10000</p>
-<p class="price">価格：200円</p>
+
+<p>UR : 10000</p>
+<p>限定キャラ多数</p>
+
+<div class="stock instock">
+在庫 : 1
+</div>
+
+<div class="price">
+200円
+</div>
 
 <button onclick="document.getElementById('pay').scrollIntoView({behavior:'smooth'})">
 購入する
+</button>
+
+</div>
+
+
+<div class="card">
+
+<img src="account2.jpg">
+
+<h2>最強アカウント②</h2>
+
+<p>UR : 9000</p>
+<p>レアキャラあり</p>
+
+<div class="stock sold">
+売り切れ
+</div>
+
+<div class="price">
+200円
+</div>
+
+<button disabled>
+売り切れ
 </button>
 
 </div>
@@ -89,19 +178,27 @@ opacity:0.7;
 
 <div class="pay" id="pay">
 
-<h2>PayPayで支払い</h2>
+<h2>💰 PayPayで支払い</h2>
 
 <p>QRコードを読み取って支払いしてください</p>
 
 <img src="lv_0_20260305231032.jpg" width="250">
 
-<p>支払い後Discordで連絡してください</p>
+<div class="discord">
+
+<p>支払い後こちらで連絡</p>
+
+<a href="https://discord.com">Discord</a>
+
+</div>
 
 </div>
 
 <div class="footer">
+
 支払い方法：PayPay  
-購入後はDiscordで連絡してください
+購入後はDiscordで連絡してください  
+
 </div>
 
 </body>
