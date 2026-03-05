@@ -3,52 +3,49 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>にゃんこ大戦争 最強アカウントショップ</title>
 
 <style>
 body{
+  margin:0;
   background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
   color:white;
   font-family:sans-serif;
   text-align:center;
-  margin:0;
 }
 
 header{
   padding:30px;
-  font-size:28px;
+  font-size:30px;
   font-weight:bold;
   color:#00ffd5;
 }
 
 .container{
-  display:flex;
-  flex-direction:column;
-  gap:20px;
   padding:20px;
 }
 
 .card{
   background:#1e1e1e;
-  margin:auto;
-  padding:20px;
+  margin:20px;
+  padding:25px;
   border-radius:15px;
-  box-shadow:0 0 10px rgba(0,0,0,0.5);
-  width:300px;
+  box-shadow:0 0 15px rgba(0,0,0,0.5);
 }
 
 .price{
-  font-size:22px;
+  font-size:24px;
   color:#00ff88;
-  margin:10px 0;
 }
 
 button{
+  margin-top:15px;
   background:#00ff88;
   border:none;
-  padding:12px 20px;
+  padding:12px 25px;
   border-radius:10px;
-  font-size:16px;
+  font-size:18px;
   cursor:pointer;
 }
 
@@ -56,9 +53,12 @@ button:hover{
   background:#00cc6a;
 }
 
+.pay{
+  margin-top:30px;
+}
+
 .footer{
   margin-top:40px;
-  font-size:14px;
   opacity:0.7;
 }
 </style>
@@ -77,13 +77,26 @@ button:hover{
 <h2>アカウント①</h2>
 <p>UR:10000</p>
 <p class="price">価格:200円</p>
-<button>購入する</button>
+
+<button onclick="document.getElementById('pay').scrollIntoView()">
+購入する
+</button>
 </div>
 
+</div>
+
+<div class="pay" id="pay">
+<h2>PayPayで支払い</h2>
+
+<p>↓QRを読み取って支払いしてください↓</p>
+
+<img src="paypay.png" width="200">
+
+<p>支払い後Discordで連絡してください</p>
 </div>
 
 <div class="footer">
-支払い方法 : PayPay<br>
+支払い方法 : PayPay  
 購入後はDiscordで連絡してください
 </div>
 
