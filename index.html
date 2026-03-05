@@ -7,123 +7,69 @@
 <title>にゃんこ大戦争 最強アカウントショップ</title>
 
 <style>
-
-body{
-margin:0;
-font-family:sans-serif;
-background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
-color:white;
-}
-
-header{
-text-align:center;
-padding:40px;
-font-size:32px;
-font-weight:bold;
-color:#00ffd5;
-background:#0b0f1a;
-}
-
-.shop{
-display:flex;
-justify-content:center;
-padding:30px;
-}
-
-.card{
-background:#1e1e1e;
-border-radius:15px;
-padding:20px;
-width:280px;
-text-align:center;
-box-shadow:0 0 15px rgba(0,0,0,0.5);
-}
-
-.card img{
-width:100%;
-border-radius:10px;
-}
-
-.price{
-font-size:24px;
-color:#00ff88;
-margin:10px;
-}
-
-button{
-background:#00ff88;
-border:none;
-padding:12px 20px;
-border-radius:10px;
-cursor:pointer;
-}
-
-button:hover{
-background:#00cc6a;
-}
-
-.pay{
-text-align:center;
-padding:40px;
-background:#111;
-}
-
-.footer{
-text-align:center;
-padding:20px;
-opacity:0.7;
-}
-
+body{margin:0;font-family:sans-serif;background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);color:white;}
+header{text-align:center;padding:40px;font-size:32px;font-weight:bold;color:#00ffd5;background:#0b0f1a;}
+.shop{display:flex;justify-content:center;padding:30px;}
+.card{background:#1e1e1e;border-radius:15px;padding:20px;width:280px;text-align:center;box-shadow:0 0 15px rgba(0,0,0,0.5);}
+.card img{width:100%;border-radius:10px;}
+.price{font-size:24px;color:#00ff88;margin:10px;}
+button{background:#00ff88;border:none;padding:12px 20px;border-radius:10px;cursor:pointer;}
+button:hover{background:#00cc6a;}
+.pay{text-align:center;padding:40px;background:#111;}
+.footer{text-align:center;padding:20px;opacity:0.7;}
 </style>
 </head>
-
 <body>
 
-<header>
-🐱 にゃんこ大戦争 最強アカウントショップ
-</header>
+<header>🐱 にゃんこ大戦争 最強アカウントショップ</header>
 
 <div class="shop">
-
 <div class="card">
-
-<img src="商品画像.jpg">
-
+<img src="Screenshot_2026-03-05-23-34-57-53_3f0b811379c61c9017beb738aa439a87.jpg">
 <h2>最強アカウント</h2>
-
 <p>UR : 10000</p>
 <p>レアキャラ多数</p>
 
-<div class="price">
-200円
+<div class="price">200円</div>
+<!-- 在庫無限なので表示は「在庫: 無限」 -->
+<div>在庫: 無限</div>
+
+<button onclick="buyAccount()">購入する</button>
 </div>
-
-<button onclick="document.getElementById('pay').scrollIntoView({behavior:'smooth'})">
-購入する
-</button>
-
-</div>
-
 </div>
 
 <div class="pay" id="pay">
-
 <h2>💰 PayPayで支払い</h2>
-
 <p>QRコードを読み取って支払いしてください</p>
-
-<img src="PayPayQR.jpg" width="250">
-
+<img src="lv_0_20260305231032.jpg" width="250">
 <p>支払い後Discordで連絡してください</p>
-
 </div>
 
 <div class="footer">
-
 支払い方法：PayPay<br>
 購入後はDiscordで連絡
-
 </div>
+
+<script>
+// Webhook URLをここに貼る（自分のDiscordチャンネル用）
+const webhookURL = "https://discord.com/api/webhooks/xxxxxxxxx/yyyyyyyyyy";
+
+function buyAccount(){
+    // Discordにメッセージ送信
+    fetch(webhookURL, {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({
+            content: "にゃんこ大戦争 最強アカウントが購入されました！"
+        })
+    })
+    .then(()=> alert("Discordに通知されました！"))
+    .catch(()=> alert("送信失敗しました"));
+
+    // PayPayセクションへスクロール
+    document.getElementById('pay').scrollIntoView({behavior:'smooth'});
+}
+</script>
 
 </body>
 </html>
